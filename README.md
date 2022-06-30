@@ -11,6 +11,6 @@ This script works in any UNIX based operating systems and in Windows if Python i
 Syntax: python listener.py
 
 [*] Example:
-  python listener.py              Starts ARP listening for connections from set IP address an port
+  python listener.py              Starts listening for connections from set IP address an port
 
 ```
