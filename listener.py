@@ -2,6 +2,20 @@
 import base64
 import json
 import socket
+import optparse
+
+
+def get_arguments():
+    parser = optparse.OptionParser()
+    parser.add_option("-i", "--ip", dest="ip", help="Target IP Address used for listening connections")
+    parser.add_option("-p", "--port", dest="port", help="Target port used for listening connections")
+    (options, arguments) = parser.parse_args()
+    if not options.ip:
+        parser.error("[-] Please specify a valid IP Address, use --help for more info")
+    elif not options.port:
+        parser.error("[-] Please specify a valid port, use --help for more info")
+    else:
+        return options
 
 
 class Listener:
@@ -59,4 +73,8 @@ class Listener:
             print(result)
 
 
-my_listener = Listener("put target IP address here", "put target port here")
+options = get_arguments()
+ip = options.ip
+port = options.port
+port = int(port)
+my_listener = Listener(ip, port)
